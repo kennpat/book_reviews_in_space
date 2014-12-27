@@ -7,6 +7,7 @@ group :development, :test do
 	gem 'launchy'
 	gem 'orderly'
 	gem 'devise'
+	gem 'factory_girl_rails'
 end
 
 

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :books do
+
+  end
+
   #Add resources for creating a book and for a review here
 
 
