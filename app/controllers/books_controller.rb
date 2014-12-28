@@ -1,7 +1,7 @@
-class BooksController < ActiveRecord::Base
+class BooksController < ApplicationController
 
 	def index
-		@books = Book.order(created_at: :description)
+		@books = Book.order(:created_at)
 	end
 
 	def new

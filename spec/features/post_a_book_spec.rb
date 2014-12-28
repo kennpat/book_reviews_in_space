@@ -16,7 +16,7 @@ Acceptance Criteria
 ) do
 
 	scenario "user posts a new book" do
-		visit "/books/new"
+		visit new_book_path
 		book = FactoryGirl.build(:book)
 				
 		fill_in "Title:", with: book.title
