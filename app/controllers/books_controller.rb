@@ -2,6 +2,7 @@ class BooksController < ActiveRecord::Base
 
 	def index
 		@books = Book.order(created_at: :description)
+	end
 
 	def new
 		@book = Book.new
@@ -17,6 +18,10 @@ class BooksController < ActiveRecord::Base
 	end
 
 	def show
+
+	end
+
+	def delete
 
 	end
 

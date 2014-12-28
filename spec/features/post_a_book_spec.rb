@@ -1,4 +1,4 @@
-
+require "rails_helper"
 
 feature "User wants to post a new book", %q(
 Post a Book
@@ -16,10 +16,11 @@ Acceptance Criteria
 ) do
 
 	scenario "user posts a new book" do
-		visit book_new
+		visit "/books/new"
 		book = FactoryGirl.build(:book)
-		fill_in "Title", with: book.title
-		fill_in "Description", with: book.description
+				
+		fill_in "Title:", with: book.title
+		fill_in "Description:", with: book.description
 		fill_in "Book URL", with: book.url 
 
 		click_on "Submit"

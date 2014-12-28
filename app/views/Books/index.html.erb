@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<h1>Books in Space!</h1>
+
+<ul>
+	<% if @books %>
+		<% @books.each do |book| %>
+			<li><a href=""><%=book.title %></a></li>
+		<% end %>
+	<% end %>
+</ul>
