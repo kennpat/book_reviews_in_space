@@ -11,7 +11,7 @@ FactoryGirl.define do
 	end
 
 	factory :book do
-		sequence :title do
+		sequence :title do |n|
 			"Moby Dick#{n}"
 		end
 
