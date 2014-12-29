@@ -23,17 +23,25 @@ class ReviewsController < ApplicationController
 
 	def edit
 		@review = Review.find(:filtered_params)
+		@book = Book.find_by[id: params[:id]]
+		
+		if @review.save
+			redirect_to "/books/#{@book.id}"
+		else
+			render :new
+		end
+
 	end
 
 	def delete
-		@review = Review.find_by(id: params[:id])
+		@review = Review.find_by(:filtered_params)
 		@review.destroy
 	end
 
 	private
 
 	def filtered_params
-		params.require(:review).permit(:review)
+		params.require(:review).permit(:review, :id)
 	end
 
 end

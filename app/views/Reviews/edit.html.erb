@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<h4>Edit a Review</h4>
+
+<% if @review.errors.any? %>
+	<ul>
+			<% @review.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+<div>
+<h4>Current Review Text:</h4>
+<p><%= @review.review %></p>
+</div>
+<div>
+<h4>Please make changes you wish to make:</h4>
+	<%= form_for [@book, @review] do |f| %>
+		<div>
+			<%= label_tag(:q, "Review") %>
+			<%= f.text_area(:review) %>
+		</div>
+			<%= f.hidden_field :book_id, :value => params["book_id"] %>
+			<%= f.submit "Submit" %>
+	<% end %>
+</div>
