@@ -15,24 +15,14 @@ Acceptance Criteria
 [] I must be presented with errors if I fill out the form incorrectly
 ) do
 
-test_user = User.create(user_name: "The Man on the Moon", email: "test@testing.com", encrypted_password: "12345")
-
-
-
-
-
 	scenario "user posts a new book" do
-		current_user = test_user
+		user = FactoryGirl.build(:user)
+		book = FactoryGirl.build(:book)
 		visit "books/new"
 		save_and_open_page
-		click_on "Sign up"
-		# will refactor later to use factory girl
-		# book = FactoryGirl.build(:book)
-				
-		fill_in "Title", with: "Moby Dick"
-		fill_in "Description", with: "Captain Ahab chases the beast around the horn."
-		fill_in "URL", with: "http://en.wikipedia.org/wiki/Moby-Dick"
-
+		fill_in "Title", with: book.title
+		fill_in "Description", with: book.description
+		fill_in "URL", with: book.url
 		click_on "Submit"
 
 		expect(page).to have_content "Book posted successfully"
