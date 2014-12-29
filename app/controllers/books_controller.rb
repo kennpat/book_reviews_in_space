@@ -11,13 +11,14 @@ class BooksController < ApplicationController
 	def create
 		@book = Book.new(user_params)
 		if @book.save
-			redirect_to books_index
+			redirect_to "/books"
 		else
-			render 'new'
+			render "new"
 		end
 	end
 
 	def show
+		@book = Book.find_by(id: params[:id])
 
 	end
 

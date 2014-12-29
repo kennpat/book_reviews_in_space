@@ -5,7 +5,11 @@
 <ul>
 	<% if @books %>
 		<% @books.each do |book| %>
-			<li><a href=""><%=book.title %></a></li>
+			<li><a href="/books/<%= book.id %>"><%= book.title %></a>
+				<p><%= book.description %></p>
+				<a href="<% book.url%>"><%= book.url %> </a>
+			</li>
+
 		<% end %>
 	<% end %>
 </ul>
