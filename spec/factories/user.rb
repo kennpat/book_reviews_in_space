@@ -2,9 +2,7 @@ FactoryGirl.define do
 	factory :user do
 		user_name "Major Tom"
 		sequence :email do |n|
-
-			email "lost#{n}@inspace.com"
-
+			"lost#{n}@inspace.com"
 		end
 
 			role "Candidate"
@@ -14,7 +12,7 @@ FactoryGirl.define do
 
 	factory :book do
 		sequence :title do
-			title "Moby Dick#{n}"
+			"Moby Dick#{n}"
 		end
 
 		description "Captain Ahab chases the beast around the horn."

@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
 
+	before_action :authenticate_user!, only: [:destroy, :delete, :new, :create, :edit, :update]
+
 	def index
 		@books = Book.order(:created_at)
 	end
@@ -23,7 +25,8 @@ class BooksController < ApplicationController
 	end
 
 	def delete
-
+		@book = Book.find(params[:id])
+		@book.destroy
 	end
 
 	private
